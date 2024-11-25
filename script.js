@@ -1,4 +1,3 @@
-// Select Elements
 let gridItems = document.getElementsByClassName("square");
 let resetButton = document.querySelector(".game-footer .reset-btn");
 
@@ -10,6 +9,7 @@ let gameIsFinished = false;
 let boardArray = ["", "", "", "", "", "", "", "", ""];
 let playerSymbol = "";
 let computerSymbol = "";
+let isPlayerTurn = true; // تحديد من لديه الدور
 
 // ========================================================================= //
 
@@ -50,8 +50,12 @@ function startGame() {
 
 for (const item of gridItems) {
   item.addEventListener("click", () => {
-    // Check If The Game Is Finished or if the cell is already filled
-    if (gameIsFinished || boardArray[item.getAttribute("data-index")] !== "")
+    // Check If The Game Is Finished or if the cell is already filled, or if it's not the player's turn
+    if (
+      gameIsFinished ||
+      boardArray[item.getAttribute("data-index")] !== "" ||
+      !isPlayerTurn
+    )
       return;
 
     // Mark the current player's symbol
@@ -72,6 +76,9 @@ for (const item of gridItems) {
     document.querySelector(
       ".game-header > h2"
     ).innerHTML = `${currentTurn} Turn`;
+
+    // Disable player input until computer plays
+    isPlayerTurn = false;
 
     // If it's computer's turn, make a move
     if (currentTurn === computerSymbol && !gameIsFinished) {
@@ -143,6 +150,7 @@ function resetGame() {
   currentTurn = playerSymbol;
   gameIsFinished = false;
   boardArray = ["", "", "", "", "", "", "", "", ""];
+  isPlayerTurn = true; // Allow player to move again
 
   // Add The Instructions About The Current Turn
   document.querySelector(".game-header > h2").innerHTML = `${currentTurn} Turn`;
@@ -197,6 +205,7 @@ function computerMove() {
   // Switch the turn back to player
   currentTurn = playerSymbol;
   document.querySelector(".game-header > h2").innerHTML = `${currentTurn} Turn`;
-}
 
-// ========================================================================= //
+  // Enable player input after computer's turn
+  isPlayerTurn = true;
+}
