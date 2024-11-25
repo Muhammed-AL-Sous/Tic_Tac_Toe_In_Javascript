@@ -1,0 +1,205 @@
+:root {
+  --bg-color-page: #222;
+  --bg-color-cell: #444;
+  --color-icon: #ffd700;
+  --bg-color-hover-button: #e5c100;
+  --color-fonts: #fff;
+  --main-transition: 0.6s;
+  --secondary-transition: 0.3s;
+  --bg-color-reset: rgb(84 60 172);
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+/* Start Container */
+
+.container {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Small Screens */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+/* Medium Screens */
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+/* Large Screens */
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+/* End Container */
+
+/* =========================================================== */
+
+body {
+  background-color: var(--bg-color-page);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--color-fonts);
+  text-align: center;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+/* =========================================================== */
+
+.main-title {
+  margin-bottom: 20px;
+  margin-top: -20px;
+}
+
+/* Start Player Choice Section  */
+
+.player-choice h2 {
+  margin-bottom: 30px;
+  font-size: 30px;
+}
+
+.player-choice .choice-btn {
+  cursor: pointer;
+  background-color: var(--bg-color-cell);
+  color: var(--bg-color-hover-button);
+  padding: 10px 20px;
+  border: none;
+  margin: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.player-choice .choice-btn:hover {
+  color: var(--color-icon);
+  background-color: var(--bg-color-reset);
+}
+
+/* End Player Choice Section  */
+
+/* =========================================================== */
+
+.game-header {
+  background-color: #666;
+  width: 360px;
+  margin: auto;
+  padding: 10px 20px;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+}
+
+/* =========================================================== */
+
+.game-board {
+  margin: 20px 0;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  justify-content: center;
+  gap: 30px;
+}
+
+.game-board .square {
+  background-color: var(--bg-color-cell);
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  cursor: pointer;
+  transition: var(--main-transition);
+  -webkit-transition: var(--main-transition);
+  -moz-transition: var(--main-transition);
+  -ms-transition: var(--main-transition);
+  -o-transition: var(--main-transition);
+}
+
+.game-board.square:hover {
+  scale: 1.1;
+}
+
+.game-board .square h3 {
+  color: var(--color-icon);
+  font-size: 50px;
+  transition: var(--secondary-transition);
+  -webkit-transition: var(--secondary-transition);
+  -moz-transition: var(--secondary-transition);
+  -ms-transition: var(--secondary-transition);
+  -o-transition: var(--secondary-transition);
+}
+
+.game-board .square h3:hover {
+  color: var(--bg-color-hover-button);
+}
+
+/* =========================================================== */
+
+.game-footer .reset-btn,
+.game-footer .choose-btn {
+  margin: 2px;
+  font-weight: bold;
+  background-color: var(--bg-color-reset);
+  border: none;
+  color: var(--color-fonts);
+  padding: 10px 20px;
+  width: 180px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 6px;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
+  transition: var(--secondary-transition);
+  -webkit-transition: var(--secondary-transition);
+  -moz-transition: var(--secondary-transition);
+  -ms-transition: var(--secondary-transition);
+  -o-transition: var(--secondary-transition);
+}
+
+.game-footer .reset-btn:hover {
+  box-shadow: 0 0 10px var(--bg-color-reset);
+}
+
+.game-footer .choose-btn {
+  background-color: var(--bg-color-cell);
+  color: var(--bg-color-hover-button);
+}
+
+.game-footer .choose-btn:hover {
+  box-shadow: 0 0 10px var(--bg-color-hover-button);
+}
+
+/* =========================================================== */
